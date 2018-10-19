@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "vaporApiTemplate",
     products: [
-        .library(name: "vaporApiTemplate", targets: ["vaporApiTemplate"]),
+        .library(name: "vaporApiTemplate", targets: ["App"]),
         ],
     dependencies: [
         // 💧 A server-side Swift web framework.
@@ -23,13 +23,12 @@ let package = Package(
         .package(url: "https://github.com/vapor-community/swiftybeaver-provider.git", from: "3.1.0")
     ],
     targets: [
-        .target(name: "vaporApiTemplate", dependencies: ["FluentMySQL", "Vapor","Authentication",
+        .target(name: "App", dependencies: ["FluentMySQL", "Vapor","Authentication",
                                             "Crypto",
                                             "Redis",
                                             "Multipart",
                                             "SwiftyBeaverProvider"]),
-        .target(name: "Run", dependencies: ["vaporApiTemplate"]),
-        .testTarget(name: "AppTests", dependencies: ["vaporApiTemplate"])
+        .testTarget(name: "AppTests", dependencies: ["App"])
     ]
 )
 
