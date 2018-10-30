@@ -8,11 +8,11 @@
 import Foundation
 import FluentMySQL
 
-public let mysqlHostname = "47.106.231.100"//"127.0.0.1"
+public let mysqlHostname = "127.0.0.1"
 public let mysqlPort = 3306
 public let mysqlUsername = "root"
 public let mysqlPassword = "root"
-public let mysqlDatabase = "vapor_test"
+public let mysqlDatabase = "creditCaculator"
 
 final class SQLConfig {
 
@@ -58,6 +58,7 @@ fileprivate func registerTable() -> MigrationConfig {
     migrations.add(model: AccessToken.self, database: .mysql)
     migrations.add(model: RefreshToken.self, database: .mysql)
     migrations.add(model: User.self, database: .mysql)
+    
     
     return migrations
 }
